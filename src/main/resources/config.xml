@@ -1,0 +1,5 @@
+<config>
+    <url>${db.url}</url>
+    <user>${db.user}</user>
+    <password>${db.password}</password>
+</config>
