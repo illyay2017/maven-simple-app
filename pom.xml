@@ -3,39 +3,48 @@
 
         <modelVersion>4.0.0</modelVersion>
 
-        <!-- project coordinates -->
-        <groupId>com.xyz</groupId>
-        <artifactId>simple-app</artifactId>
-        <version>1.0</version>
-
-        <!-- to prevent compilation error: [ERROR] Target option 1.5 is no longer supported. Use 1.6 or later.-->
         <properties>
                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
                 <maven.compiler.source>1.6</maven.compiler.source>
                 <maven.compiler.target>1.6</maven.compiler.target>
         </properties>
 
+        <!-- project coordinates -->
+        <groupId>com.xyz</groupId>
+        <artifactId>simple-app</artifactId>
+        <version>1.0</version>
+
+        <build>
+                <plugins>
+                    <plugin>
+                      <artifactId>maven-jar-plugin</artifactId>
+                      <version>2.4</version>
+                      <executions>
+                          <execution>
+                            <id>test-jar</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>test-jar</goal>
+                            </goals>
+                          </execution>
+                      </executions>
+                    </plugin>
+                </plugins>
+        </build>
+
         <!-- project dependencies -->
         <dependencies>
+                <dependency>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                        <version>4.12</version>
+                        <scope>test</scope>
+                </dependency>
                 <dependency>
                         <groupId>commons-lang</groupId>
                         <artifactId>commons-lang</artifactId>
                         <version>2.4</version>
                 </dependency>
         </dependencies>
+
 </project>
-
-<!--
-At this stage, we use a bare minimum POM to define the project. The elements in pom.xml are:
-project – the top level or root element of the POM.
-modelVersion – POM model to use and it should be set to 4.0.0
-groupId – project’s group id and normally, it is organization name which owns the project such as org.apache, org.springsource etc.,
-artifactId – name of the project such as commons-lang, junit etc.,
-version – artifact version.
-
-The trio – groupId, artifactId and version – is known as Maven Coordinates. 
-The coordinate provides an unique identity to a Maven project and every project should have them. 
-The coordinates should be unique and no two Maven projects can have same coordinates. 
-These three values form the project’s fully qualified artifact name 
-and the fully qualified name of our simple maven project is com.xyz:simple-app:1.0
--->
