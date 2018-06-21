@@ -8,6 +8,12 @@
         <artifactId>simple-app</artifactId>
         <version>1.0</version>
 
+        <!-- to prevent compilation error: [ERROR] Target option 1.5 is no longer supported. Use 1.6 or later.-->
+        <properties>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+          <maven.compiler.source>1.6</maven.compiler.source>
+          <maven.compiler.target>1.6</maven.compiler.target>
+        </properties>
 </project>
 
 <!--
