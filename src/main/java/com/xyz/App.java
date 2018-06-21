@@ -1,4 +1,4 @@
-package main.java.com.xyz;
+package com.xyz;
 
 import java.util.Date;
 import org.apache.commons.lang.time.DateFormatUtils;
